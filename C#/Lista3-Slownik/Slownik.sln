@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.438
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slownik", "Slownik\Slownik.csproj", "{DC00F2AF-28D1-4372-A19E-46A13BAB20AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC00F2AF-28D1-4372-A19E-46A13BAB20AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC00F2AF-28D1-4372-A19E-46A13BAB20AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC00F2AF-28D1-4372-A19E-46A13BAB20AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC00F2AF-28D1-4372-A19E-46A13BAB20AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {99265009-505B-4FDC-B75A-B8AB10EB35C9}
+	EndGlobalSection
+EndGlobal

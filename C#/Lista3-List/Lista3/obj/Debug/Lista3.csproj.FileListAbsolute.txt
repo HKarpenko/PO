@@ -1,0 +1,7 @@
+E:\Программирование\универ\po\Lista3\Lista3\bin\Debug\Lista3.exe.config
+E:\Программирование\универ\po\Lista3\Lista3\bin\Debug\Lista3.exe
+E:\Программирование\универ\po\Lista3\Lista3\bin\Debug\Lista3.pdb
+E:\Программирование\универ\po\Lista3\Lista3\obj\Debug\Lista3.csprojAssemblyReference.cache
+E:\Программирование\универ\po\Lista3\Lista3\obj\Debug\Lista3.csproj.CoreCompileInputs.cache
+E:\Программирование\универ\po\Lista3\Lista3\obj\Debug\Lista3.exe
+E:\Программирование\универ\po\Lista3\Lista3\obj\Debug\Lista3.pdb

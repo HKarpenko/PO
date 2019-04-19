@@ -1,0 +1,7 @@
+E:\Программирование\универ\po\Lista3\Slownik\Slownik\obj\Debug\Slownik.csprojAssemblyReference.cache
+E:\Программирование\универ\po\Lista3\Slownik\Slownik\obj\Debug\Slownik.csproj.CoreCompileInputs.cache
+E:\Программирование\универ\po\Lista3\Slownik\Slownik\bin\Debug\Slownik.exe.config
+E:\Программирование\универ\po\Lista3\Slownik\Slownik\bin\Debug\Slownik.exe
+E:\Программирование\универ\po\Lista3\Slownik\Slownik\bin\Debug\Slownik.pdb
+E:\Программирование\универ\po\Lista3\Slownik\Slownik\obj\Debug\Slownik.exe
+E:\Программирование\универ\po\Lista3\Slownik\Slownik\obj\Debug\Slownik.pdb

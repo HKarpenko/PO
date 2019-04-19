@@ -1,0 +1,7 @@
+E:\Программирование\универ\po\Lista4-1\Lista4-1\bin\Debug\Lista4-1.exe.config
+E:\Программирование\универ\po\Lista4-1\Lista4-1\bin\Debug\Lista4-1.exe
+E:\Программирование\универ\po\Lista4-1\Lista4-1\bin\Debug\Lista4-1.pdb
+E:\Программирование\универ\po\Lista4-1\Lista4-1\obj\Debug\Lista4-1.csprojAssemblyReference.cache
+E:\Программирование\универ\po\Lista4-1\Lista4-1\obj\Debug\Lista4-1.csproj.CoreCompileInputs.cache
+E:\Программирование\универ\po\Lista4-1\Lista4-1\obj\Debug\Lista4-1.exe
+E:\Программирование\универ\po\Lista4-1\Lista4-1\obj\Debug\Lista4-1.pdb

@@ -1,0 +1,7 @@
+C:\Users\EGOR\source\repos\First\First\obj\Debug\First.csprojAssemblyReference.cache
+C:\Users\EGOR\source\repos\First\First\obj\Debug\First.csproj.CoreCompileInputs.cache
+C:\Users\EGOR\source\repos\First\First\bin\Debug\First.exe.config
+C:\Users\EGOR\source\repos\First\First\bin\Debug\First.exe
+C:\Users\EGOR\source\repos\First\First\bin\Debug\First.pdb
+C:\Users\EGOR\source\repos\First\First\obj\Debug\First.exe
+C:\Users\EGOR\source\repos\First\First\obj\Debug\First.pdb
