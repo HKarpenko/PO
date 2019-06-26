@@ -1,0 +1,49 @@
+# depslib dependency file v1.0
+1561027157 source:e:\Программирование\универ\poatt\main.cpp
+	"Game.hpp"
+	"Mapp.hpp"
+	"Camera.hpp"
+	"Hero.hpp"
+	"Enemy.hpp"
+	"TextField.hpp"
+
+1561286523 e:\Программирование\универ\poatt\game.hpp
+	<SFML/Graphics.hpp>
+	<iostream>
+	<cstring>
+	<cmath>
+	"Mapp.hpp"
+	"Camera.hpp"
+	"Hero.hpp"
+	"Enemy.hpp"
+	"TextField.hpp"
+
+1561140586 e:\Программирование\универ\poatt\mapp.hpp
+	<SFML\Graphics.hpp>
+
+1561040023 e:\Программирование\универ\poatt\camera.hpp
+	"Hero.hpp"
+	<SFML/Graphics.hpp>
+
+1561286510 e:\Программирование\универ\poatt\hero.hpp
+	"Creature.hpp"
+	"Mapp.hpp"
+	"Camera.hpp"
+	"Enemy.hpp"
+	<SFML/Graphics.hpp>
+
+1561286510 e:\Программирование\универ\poatt\creature.hpp
+	<SFML/Graphics.hpp>
+
+1561286510 e:\Программирование\универ\poatt\enemy.hpp
+	<string>
+	<SFML/Graphics.hpp>
+	"Mapp.hpp"
+	"Creature.hpp"
+
+1561029842 e:\Программирование\универ\poatt\textfield.hpp
+	"Camera.hpp"
+	"Hero.hpp"
+	<sstream>
+	<SFML/Graphics.hpp>
+
