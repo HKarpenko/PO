@@ -16,32 +16,33 @@ using namespace sf;
 class Game{
     bool menu_on=true;
     Clock Esc_timer;
-    void inter_with_enemies(Hero& hero, std::vector<Creature*> mus, double tim) {
-        for ( Creature* Mu : mus ) {
-            if(hero.contact(Mu) && Mu->get_status()!="death"){
-                if(hero.get_status()!="attack"){
-                    if(Mu->get_att_tim()>0.8){
-                        hero.set_health(-Mu->get_damage());
-                        hero.set_status("jump");
-                        Mu->restart_att();
-                    }
-                }
-                else if(Mu->get_dam_tim()>0.8){
-                    Mu->set_health(-hero.get_damage());
-                    Mu->restart_dam();
-                    if(hero.get_dir()=="right"){
-                        Mu->set_direction("right");
-                        for(int i=0;i<1000;i++)
-                            if(Mu->movingX(0.01*tim))
-                                break;
-                    }
-                    else{
-                        Mu->set_direction("left");
-                        for(int i=0;i<1000;i++)
-                            if(Mu->movingX(-0.01*tim))
-                                break;
-                    }
-                }
+
+    void inter_with_enemies(Hero& hero, Creature* Mu, double tim) {
+        if(!(hero.contact(Mu)) || Mu->get_status()=="death")
+            return;
+        if(hero.get_status()!="attack"){
+            if(Mu->get_att_tim()>0.8){
+                hero.set_health(- Mu->get_damage());
+                Mu->restart_att();
+                hero.set_status("jump");
+                hero.update_hero(tim);
+                hero.set_speedY(-0.29);
+            }
+        }
+        else if(Mu->get_dam_tim()>0.8){
+            Mu->set_health(- hero.get_damage());
+            Mu->restart_dam();
+            if(hero.get_dir()=="right"){
+                Mu->set_direction("right");
+                for(int i=0;i<1000;i++)
+                    if(Mu->movingX(0.01*tim))
+                        break;
+            }
+            else{
+                Mu->set_direction("left");
+                for(int i=0;i<1000;i++)
+                    if(Mu->movingX(-0.01*tim))
+                        break;
             }
         }
     }
@@ -165,16 +166,18 @@ class Game{
 
         Hero Jack;
 
-        std::vector<Creature*> Mus;
+        std::vector<Creature*> Ens;
         for (int i = 0; i < MAPP::height; i++)
             for (int j = 0; j < MAPP::width; j++)
-                if(MAPP::TileMap[i][j]=='e')
-                    Mus.push_back(new Mush(j*32,i*32+13,"left"));
+                if(MAPP::TileMap[i][j]=='M')
+                    Ens.push_back(new Mush(j*32,i*32+13,"left",&Jack));
+                else if(MAPP::TileMap[i][j]=='G')
+                    Ens.push_back(new Golem(j*32,i*32+1,"left",&Jack));
         Camera cam(Jack);
         cam.get_cam().reset(sf::FloatRect(0, 0, 640, 480));
 
-        Text_field hero_hp("font.ttf",32);
-        hero_hp.assign_hp(Jack, cam);
+        Text_field text_hero_hp("font.ttf",32);
+        text_hero_hp.assign_hp(Jack, cam);
 
         while (window.isOpen())
         {
@@ -182,7 +185,7 @@ class Game{
             timing.restart();
             tim/=800;
             sf::Event event;
-            for ( Creature* Mu : Mus ) {
+            for ( Creature* Mu : Ens ) {
                 Mu->update(tim);
             }
             if (Jack.get_end())
@@ -231,17 +234,19 @@ class Game{
                     Jack.set_status("stay");
                 Jack.update_hero(tim);
             }
-            inter_with_enemies(Jack, Mus, tim);
+            for ( Creature* Mu : Ens ) {
+                inter_with_enemies(Jack, Mu, tim);
+            }
             window.clear();
             map_v1.drawing_back(window);
             Jack.drawing(window);
-            for ( Creature* Mu : Mus ) {
-                Mu->drawing(window);
-            }
             cam.update();
             map_v1.drawing(window);
-            hero_hp.update_hp(Jack, cam);
-            hero_hp.drawing(window);
+            for ( Creature* Mu : Ens ) {
+                Mu->drawing(window);
+            }
+            text_hero_hp.update_hp(Jack, cam);
+            text_hero_hp.drawing(window);
             window.setView(cam.get_cam());
             window.display();
         }

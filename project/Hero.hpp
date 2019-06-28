@@ -134,7 +134,7 @@ public:
             frame_number=0;
         }
     }
-    void update_hero(double time_del,bool jump_move=false){
+    void update_hero(double time_del,bool jump_with_run=false){
         update_pose(time_del);
         if(health<=0)
             set_status("death");
@@ -184,11 +184,11 @@ public:
             speedY+=0.0005*time_del;
             sp.setTextureRect(rect);
                 if(direction=="right"){
-                    movingX(speedX*time_del*jump_move);
+                    movingX(speedX*time_del*jump_with_run);
                     movingY(speedY*time_del);
                 }
                 else{
-                    movingX(-speedX*time_del*jump_move);
+                    movingX(-speedX*time_del*jump_with_run);
                     movingY(speedY*time_del);
                 }
             if(abs(cord_y+stay_cord[3]-ground)<0.5 && speedY>0){

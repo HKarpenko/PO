@@ -47,3 +47,51 @@
 	<sstream>
 	<SFML/Graphics.hpp>
 
+1561027157 source:e:\Программирование\универ\po\project\main.cpp
+	"Game.hpp"
+	"Mapp.hpp"
+	"Camera.hpp"
+	"Hero.hpp"
+	"Enemy.hpp"
+	"TextField.hpp"
+
+1561750234 e:\Программирование\универ\po\project\game.hpp
+	<SFML/Graphics.hpp>
+	<iostream>
+	<cstring>
+	<cmath>
+	"Mapp.hpp"
+	"Camera.hpp"
+	"Hero.hpp"
+	"Enemy.hpp"
+	"TextField.hpp"
+
+1561751160 e:\Программирование\универ\po\project\mapp.hpp
+	<SFML\Graphics.hpp>
+
+1561040023 e:\Программирование\универ\po\project\camera.hpp
+	"Hero.hpp"
+	<SFML/Graphics.hpp>
+
+1561743328 e:\Программирование\универ\po\project\hero.hpp
+	"Creature.hpp"
+	"Mapp.hpp"
+	"Camera.hpp"
+	"Enemy.hpp"
+	<SFML/Graphics.hpp>
+
+1561286510 e:\Программирование\универ\po\project\creature.hpp
+	<SFML/Graphics.hpp>
+
+1561751079 e:\Программирование\универ\po\project\enemy.hpp
+	<string>
+	<SFML/Graphics.hpp>
+	"Mapp.hpp"
+	"Creature.hpp"
+
+1561029842 e:\Программирование\универ\po\project\textfield.hpp
+	"Camera.hpp"
+	"Hero.hpp"
+	<sstream>
+	<SFML/Graphics.hpp>
+
