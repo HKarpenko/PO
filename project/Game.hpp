@@ -17,7 +17,57 @@ class Game{
     bool menu_on=true;
     Clock Esc_timer;
 
-    void inter_with_enemies(Hero& hero, Creature* Mu, double tim) {
+    void enemies_fill(std::vector<Creature*> &Ens, Hero& hero){
+        for (int i = 0; i < MAPP::height; i++)
+            for (int j = 0; j < MAPP::width; j++)
+                if(MAPP::TileMap[i][j]=='M')
+                    Ens.push_back(new Mush(j*32,i*32+13,"left",&hero));
+                else if(MAPP::TileMap[i][j]=='G')
+                    Ens.push_back(new Golem(j*32,i*32+1,"left",&hero));
+    }
+
+    void enemies_update(std::vector<Creature*> &Ens, const double tim){
+        for ( Creature* Mu : Ens ) {
+            Mu->update(tim);
+        }
+    }
+
+    void hero_update(Hero &Jack, const double tim){
+        if(Keyboard::isKeyPressed(sf::Keyboard::K)){
+            Jack.set_status("death");
+            Jack.update_hero(tim);
+        }
+        else if(Keyboard::isKeyPressed(sf::Keyboard::Q)){
+            if(Jack.get_att_pos() && Jack.get_status()!="attack" )
+                Jack.set_status("attack");
+            Jack.update_hero(tim);
+        }
+        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)||Keyboard::isKeyPressed(sf::Keyboard::W)){
+            if(Jack.get_status()!="jump" && Jack.get_status()!="death" && Jack.get_status()!="attack")
+                Jack.set_status("jump");
+            Jack.update_hero(tim);
+        }
+        else if(Keyboard::isKeyPressed(sf::Keyboard::Left)||Keyboard::isKeyPressed(sf::Keyboard::A)){
+            if(Jack.get_status()!="jump" && Jack.get_status()!="death" && Jack.get_status()!="attack" && Jack.get_status()!="run")
+                Jack.set_status("run");
+            if(Jack.get_status()!="attack")
+                Jack.set_direction("left");
+            Jack.update_hero(tim,true);
+        }
+        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)||Keyboard::isKeyPressed(sf::Keyboard::D)){
+            if(Jack.get_status()!="jump" && Jack.get_status()!="death" && Jack.get_status()!="attack" && Jack.get_status()!="run")
+                Jack.set_status("run");
+            if(Jack.get_status()!="attack")
+                Jack.set_direction("right");
+            Jack.update_hero(tim,true);
+        }
+        else{
+            if(Jack.get_status()!="jump"&&Jack.get_status()!="death"&&Jack.get_status()!="attack")
+                Jack.set_status("stay");
+            Jack.update_hero(tim);
+        }
+    }
+    void inter_with_enemies(Hero& hero, Creature* Mu, const double tim) {
         if(!(hero.contact(Mu)) || Mu->get_status()=="death")
             return;
         if(hero.get_status()!="attack"){
@@ -163,16 +213,9 @@ class Game{
         double tim;
 
         MAPP::Map map_v1;
-
         Hero Jack;
-
         std::vector<Creature*> Ens;
-        for (int i = 0; i < MAPP::height; i++)
-            for (int j = 0; j < MAPP::width; j++)
-                if(MAPP::TileMap[i][j]=='M')
-                    Ens.push_back(new Mush(j*32,i*32+13,"left",&Jack));
-                else if(MAPP::TileMap[i][j]=='G')
-                    Ens.push_back(new Golem(j*32,i*32+1,"left",&Jack));
+        enemies_fill(Ens, Jack);
         Camera cam(Jack);
         cam.get_cam().reset(sf::FloatRect(0, 0, 640, 480));
 
@@ -181,62 +224,30 @@ class Game{
 
         while (window.isOpen())
         {
-            tim=timing.getElapsedTime().asMicroseconds();
-            timing.restart();
-            tim/=800;
             sf::Event event;
-            for ( Creature* Mu : Ens ) {
-                Mu->update(tim);
-            }
-            if (Jack.get_end())
-                window.close();
             while (window.pollEvent(event))
-            {
                 if (event.type == sf::Event::Closed){
                     window.close();
                     keep_on=false;
                 }
-            }
+
+            tim=timing.getElapsedTime().asMicroseconds();
+            timing.restart();
+            tim/=800;
+
+            enemies_update(Ens, tim);
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && Esc_timer.getElapsedTime().asSeconds()>0.2){
                 Esc_timer.restart();
                 game_menu(window, keep_on);
             }
-            else if(Keyboard::isKeyPressed(sf::Keyboard::K)){
-                Jack.set_status("death");
-                Jack.update_hero(tim);
-            }
-            else if(Keyboard::isKeyPressed(sf::Keyboard::Q)){
-                if(Jack.get_att_pos() && Jack.get_status()!="attack" )
-                    Jack.set_status("attack");
-                Jack.update_hero(tim);
-            }
-            else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)||Keyboard::isKeyPressed(sf::Keyboard::W)){
-                if(Jack.get_status()!="jump" && Jack.get_status()!="death" && Jack.get_status()!="attack")
-                    Jack.set_status("jump");
-                Jack.update_hero(tim);
-            }
-            else if(Keyboard::isKeyPressed(sf::Keyboard::Left)||Keyboard::isKeyPressed(sf::Keyboard::A)){
-                if(Jack.get_status()!="jump" && Jack.get_status()!="death" && Jack.get_status()!="attack" && Jack.get_status()!="run")
-                    Jack.set_status("run");
-                if(Jack.get_status()!="attack")
-                    Jack.set_direction("left");
-                Jack.update_hero(tim,true);
-            }
-            else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)||Keyboard::isKeyPressed(sf::Keyboard::D)){
-                if(Jack.get_status()!="jump" && Jack.get_status()!="death" && Jack.get_status()!="attack" && Jack.get_status()!="run")
-                    Jack.set_status("run");
-                if(Jack.get_status()!="attack")
-                    Jack.set_direction("right");
-                Jack.update_hero(tim,true);
-            }
-            else{
-                if(Jack.get_status()!="jump"&&Jack.get_status()!="death"&&Jack.get_status()!="attack")
-                    Jack.set_status("stay");
-                Jack.update_hero(tim);
-            }
+
+            hero_update(Jack, tim);
+            if (Jack.get_end())
+                window.close();
             for ( Creature* Mu : Ens ) {
                 inter_with_enemies(Jack, Mu, tim);
             }
+
             window.clear();
             map_v1.drawing_back(window);
             Jack.drawing(window);
@@ -249,6 +260,9 @@ class Game{
             text_hero_hp.drawing(window);
             window.setView(cam.get_cam());
             window.display();
+        }
+        for ( Creature* Mu : Ens ) {
+            delete Mu;
         }
 
     }
