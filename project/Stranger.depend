@@ -95,3 +95,51 @@
 	<sstream>
 	<SFML/Graphics.hpp>
 
+1561027157 source:c:\users\egor\documents\github\po\project\main.cpp
+	"Game.hpp"
+	"Mapp.hpp"
+	"Camera.hpp"
+	"Hero.hpp"
+	"Enemy.hpp"
+	"TextField.hpp"
+
+1561828348 c:\users\egor\documents\github\po\project\game.hpp
+	<SFML/Graphics.hpp>
+	<iostream>
+	<cstring>
+	<cmath>
+	"Mapp.hpp"
+	"Camera.hpp"
+	"Hero.hpp"
+	"Enemy.hpp"
+	"TextField.hpp"
+
+1561751160 c:\users\egor\documents\github\po\project\mapp.hpp
+	<SFML\Graphics.hpp>
+
+1561040023 c:\users\egor\documents\github\po\project\camera.hpp
+	"Hero.hpp"
+	<SFML/Graphics.hpp>
+
+1561743328 c:\users\egor\documents\github\po\project\hero.hpp
+	"Creature.hpp"
+	"Mapp.hpp"
+	"Camera.hpp"
+	"Enemy.hpp"
+	<SFML/Graphics.hpp>
+
+1561798956 c:\users\egor\documents\github\po\project\creature.hpp
+	<SFML/Graphics.hpp>
+
+1561751079 c:\users\egor\documents\github\po\project\enemy.hpp
+	<string>
+	<SFML/Graphics.hpp>
+	"Mapp.hpp"
+	"Creature.hpp"
+
+1561029842 c:\users\egor\documents\github\po\project\textfield.hpp
+	"Camera.hpp"
+	"Hero.hpp"
+	<sstream>
+	<SFML/Graphics.hpp>
+
